@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Comment from "./Comment";
 
 function Comments({ comments }) {
   const [isShowing, setIsShowing] = useState(true);
@@ -8,10 +9,7 @@ function Comments({ comments }) {
   }
 
   const commentItems = comments.map((comment) => (
-    <div>
-      <h3>{comment.user}</h3>
-      <p>{comment.comment}</p>
-    </div>
+    <Comment key={comment.id} user={comment.user} comment={comment.comment} />
   ));
 
   return (
