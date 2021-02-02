@@ -17,6 +17,11 @@ const video = {
       user: "gaeron",
       comment: "What a great tutorial!",
     },
+    {
+      id: 3,
+      user: "aaron",
+      comment: "my name starts with A",
+    },
   ],
 };
 
