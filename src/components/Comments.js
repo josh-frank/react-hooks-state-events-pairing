@@ -3,16 +3,23 @@ import React, { useState } from "react";
 function Comments({ comments }) {
 
     const [ isHidden, toggleHidden ] = useState( false );
+    const [ currentComments, updateComments ] = useState( comments );
+
+    function deleteComment( commentToDeleteId ) {
+        const updatedComments = currentComments.filter( comment => comment.id !== commentToDeleteId );
+        updateComments( updatedComments );
+    }
 
     function hide() {
         toggleHidden( isHidden => !isHidden );
     }
 
-    const commentList = comments.map(comment => {
+    const commentList = currentComments.map(comment => {
         return (
             <div key={comment.id}  className="comment">
                 <b>
                     {comment.user}
+                    <button className="delete-comment" onClick={ () => deleteComment( comment.id ) }>🆇</button>
                 </b>
                 <p>
                     {comment.comment}
